@@ -3,6 +3,12 @@
 ## Sistema de Arquivos Distribuídos (Cliente-Servidor + P2P)
 Trabalho de Sistema de Arquivos Distribuídos da matéria de Sistemas Digitais. Este projeto implementa um sistema de arquivos distribuído com arquitetura híbrida: servidor central para metadados e peers com transferência P2P.
 
+
+### ✨ Alunos:
+- Jorge Aliomar Trocolo Abdon Dantas
+- Samuel Pedro Fernandes Amorim 
+
+
 ### 📁 Estrutura do Projeto / Diretórios
 
 Projeto/<br>
