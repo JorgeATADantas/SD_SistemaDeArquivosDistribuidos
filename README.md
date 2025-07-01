@@ -52,7 +52,7 @@ Projeto/<br>
     No terminal do peer1:
 
     ```bash
-    echo "conteudo" > storage/arquivo.txt
+    echo "Teste Peer 1 para Peer 2" > storage/testeP1-P2.txt
     python peer.py
     upload arquivo.txt
     ```
