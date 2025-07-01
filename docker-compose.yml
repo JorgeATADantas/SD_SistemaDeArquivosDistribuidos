@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./server
+    container_name: server
+    ports:
+      - "5000:5000"
+    networks:
+      - dfsnet
+
+  peer1:
+    build: ./peer
+    container_name: peer1
+    environment:
+      - PEER_PORT=9001
+    networks:
+      - dfsnet
+    stdin_open: true
+    tty: true
+
+  peer2:
+    build: ./peer
+    container_name: peer2
+    environment:
+      - PEER_PORT=9002
+    networks:
+      - dfsnet
+    stdin_open: true
+    tty: true
+
+networks:
+  dfsnet:
