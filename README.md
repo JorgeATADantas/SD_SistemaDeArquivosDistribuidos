@@ -54,7 +54,7 @@ Projeto/<br>
     ```bash
     echo "Teste Peer 1 para Peer 2" > storage/testeP1-P2.txt
     python peer.py
-    upload arquivo.txt
+    upload testeP1-P2.txt
     ```
 
 5. Download de arquivo
@@ -63,7 +63,7 @@ Projeto/<br>
 
     ```bash
     python peer.py
-    download arquivo.txt
+    download testeP1-P2.txt
     ```
 O arquivo será salvo em peer2/storage/.
 

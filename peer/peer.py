@@ -16,7 +16,7 @@ def register_with_server(filename):
     msg = {
         'command': 'REGISTER',
         'filename': filename,
-        'peer_addr': f'peer:{PEER_PORT}'
+        'peer_addr': f'{socket.gethostbyname(socket.gethostname())}:{PEER_PORT}'
     }
     with socket.socket() as s:
         s.connect((SERVER_HOST, SERVER_PORT))
