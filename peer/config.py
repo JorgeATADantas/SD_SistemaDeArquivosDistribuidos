@@ -1,4 +1,5 @@
 # peer/config.py
+# Objetivo: Contém e centraliza parâmetros como portas e diretórios usados pelo peer.
 
 import os
 

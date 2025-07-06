@@ -33,7 +33,7 @@ def peer_server():
         conn, addr = s.accept()
         filename = conn.recv(1024).decode()
         file_path = os.path.join(STORAGE_DIR, filename)
-        if os.path.exists(file_path):
+        if os.path.exists(file_path):               # Verifica se um arquivo existe localmente
             with open(file_path, 'rb') as f:
                 conn.sendall(f.read())
         else:
@@ -47,9 +47,9 @@ def download_file(filename):
         'filename': filename
     }
     with socket.socket() as s:
-        s.connect((SERVER_HOST, SERVER_PORT))
+        s.connect((SERVER_HOST, SERVER_PORT))   # Conecta ao servidor
         s.send(json.dumps(msg).encode())
-        data = s.recv(4096)
+        data = s.recv(4096)                     # Recebe resposta
         result = json.loads(data.decode())
 
         if result['status'] == 'FOUND':
@@ -67,9 +67,12 @@ def download_file(filename):
             print(f"[DOWNLOAD] Arquivo {filename} não encontrado no servidor")
 
 if __name__ == "__main__":
-    os.makedirs(STORAGE_DIR, exist_ok=True)
-    threading.Thread(target=peer_server).start()
-    time.sleep(2)
+
+    # Cria o diretório de storage se não existir
+    os.makedirs(STORAGE_DIR, exist_ok=True) 
+
+    threading.Thread(target=peer_server).start()    # Inicia o servidor P2P em background
+    time.sleep(2)                                   # Espera o servidor P2P inicializar
 
     while True:
         cmd = input("Comando (upload <arquivo> | download <arquivo>): ")

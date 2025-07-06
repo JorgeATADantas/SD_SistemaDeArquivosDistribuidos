@@ -40,12 +40,12 @@ def handle_client(conn, addr):
 # Função principal do servidor
 def start_server():
     print(f"[SERVER] Iniciando em {HOST}:{PORT}")
-    s = socket.socket()
-    s.bind((HOST, PORT))
-    s.listen()
+    s = socket.socket()         # Cria um socket TCP/IP
+    s.bind((HOST, PORT))        # Associa ao endereço e porta
+    s.listen()                  # Habilita o modo servidor
 
     while True:
-        conn, addr = s.accept()
+        conn, addr = s.accept() # Aceita conexões
         threading.Thread(target=handle_client, args=(conn, addr)).start()
 
 if __name__ == "__main__":
